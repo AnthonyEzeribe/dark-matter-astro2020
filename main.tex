@@ -26,6 +26,9 @@
 \hspace{-2.5pt}}
 \newcommand{\wontfix}{\rlap{$\square$}{\large\hspace{1pt}\xmark}}
 
+\usepackage{macros}
+\usepackage{aas_macros}
+
 \begin{document}
 \raggedright
 \huge
@@ -97,6 +100,14 @@ Insert your white paper text here (max of five pages including figures).
 \pagebreak
 \section{References}
 
+\def\bibname{References}
+
+\begingroup
+  \small
+  \setlength{\bibsep}{0pt plus 0.5ex}
+  \bibliographystyle{yahapj}
+  \bibliography{main}
+\endgroup
 
 
 \end{document}
