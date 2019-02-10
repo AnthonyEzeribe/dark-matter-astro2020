@@ -6,6 +6,8 @@
 \usepackage{enumitem,amssymb}
 \usepackage{ragged2e}
 \usepackage{graphicx}
+\usepackage{comment}
+\usepackage{multicol}
 \usepackage[usenames]{xcolor} %used for font color              
 \definecolor{xlinkcolor}{cmyk}{1,1,0,0}
 \usepackage{url}
@@ -17,7 +19,11 @@
  urlcolor=xlinkcolor,      % color of external link
  final=true
 ]{hyperref}
-\usepackage{natbib}
+\usepackage[super,sort&compress]{natbib}
+
+\newcommand{\Comment}[3]{\textcolor{#1}{(#2: #3)}} 
+\newcommand{\ADW}[1]{\Comment{blue}{ADW}{#1}} % Alex Drlica-Wagner 
+\newcommand{\KB}[1]{\Comment{orange}{KB}{#1}} % Keith Bechtol
 
 \newlist{thematic}{itemize}{8}
 \setlist[thematic]{label=$\square$}
@@ -31,42 +37,94 @@
 \usepackage{macros}
 \usepackage{aas_macros}
 
-\begin{document}
-\raggedright
-\huge
-Astro2020 Science White Paper \linebreak
+\setlength{\parskip}{0.5em}
 
-LSST: the Dark Matter Telescope\linebreak
+\begin{document}
+\begin{raggedright} 
+% part of template, but does not look good
+\huge
+Astro2020 Science White Paper \hfill ~ \linebreak
+LSST: the Dark Matter Telescope \hfill ~ \linebreak
+\end{raggedright}
 \normalsize
 
-\noindent \textbf{Thematic Areas:} \hspace*{60pt} $\square$ Planetary Systems \hspace*{10pt} $\square$ Star and Planet Formation \hspace*{20pt}\linebreak
-$\blacksquare$ Formation and Evolution of Compact Objects \hspace*{31pt} $\blacksquare$ Cosmology and Fundamental Physics \linebreak
-  $\square$  Stars and Stellar Evolution \hspace*{1pt} $\square$ Resolved Stellar Populations and their Environments \hspace*{40pt} \linebreak
-  $\square$    Galaxy Evolution   \hspace*{45pt} $\square$             Multi-Messenger Astronomy and Astrophysics \hspace*{65pt} \linebreak
+\noindent \textbf{Thematic Areas:} \hspace*{58pt} $\square$ Planetary Systems \hspace*{12pt} $\square$ Star and Planet Formation  \hfill ~\linebreak
+$\blacksquare$ Formation and Evolution of Compact Objects \hspace*{31pt} $\blacksquare$ Cosmology and Fundamental Physics \hfill ~ \linebreak
+  $\square$  Stars and Stellar Evolution \hspace*{1pt} $\square$ Resolved Stellar Populations and their Environments \hspace*{40pt} \hfill ~\linebreak
+  $\square$    Galaxy Evolution   \hspace*{45pt} $\square$             Multi-Messenger Astronomy and Astrophysics \hspace*{65pt} \hfill ~ \linebreak
   
-\textbf{Principal Author:}
+\noindent \textbf{Principal Author:} 
+Firstname Lastname$^{1}$ email phone
+%\noindent Name:	
+% \linebreak						
+%Institution:  
+% \linebreak
+%Email: 
+% \linebreak
+%Phone:  
 
-Name:	
- \linebreak						
-Institution:  
- \linebreak
-Email: 
- \linebreak
-Phone:  
- \linebreak
- 
-\textbf{Co-authors:} (names and institutions)
-  \linebreak
+\input{endorsers}
 
-\textbf{Abstract  (optional):}
-Astrophysical and cosmological observations currently provide the only robust, empirical measurements of dark matter. Future observations with Large Synoptic Survey Telescope (LSST) will provide necessary guidance for the experimental dark matter program. This white paper represents a community effort to summarize the science case for studying the fundamental physics of dark matter with LSST. We discuss how LSST will inform our understanding of the fundamental properties of dark matter, such as particle mass, self-interaction strength, non-gravitational couplings to the Standard Model, and compact object abundances. Additionally, we discuss the ways that LSST will complement other experiments to strengthen our understanding of the fundamental characteristics of dark matter. More information on the LSST dark matter effort can be found at \href{https://lsstdarkmatter.github.io/}{https://lsstdarkmatter.github.io/}.
+\noindent \textbf{Abstract):}
+Astrophysical observations currently provide the only robust, empirical measurements of dark matter. Future observations with the Large Synoptic Survey Telescope (LSST) will provide necessary guidance for the experimental dark matter program. This white paper represents a community effort to summarize the science case for studying the fundamental physics of dark matter with LSST. We discuss how LSST will inform our understanding of the fundamental properties of dark matter, such as particle mass, self-interaction strength, non-gravitational couplings to the Standard Model, and compact object abundances. Additionally, we discuss the ways that LSST will complement other experiments and facilities to strengthen our understanding of the fundamental characteristics of dark matter. More information on the LSST dark matter effort can be found at \href{https://lsstdarkmatter.github.io/}{https://lsstdarkmatter.github.io/}.
 
 \pagebreak
 
-\section*{Executive Summary}
+% Insert your white paper text here (max 5 pages inc. figs).
+
+\subsection*{Summary}
+
+More than 85 years after its astrophysical discovery, the fundamental nature of dark matter remains one of the foremost open questions in science.
+% physics and astronomy
+Over the last several decades, an extensive experimental program has sought to determine the cosmological origin, constituents, and interaction mechanisms of dark matter. 
+%While the existing experimental program has largely focused on weakly-interacting massive particles, there is strong theoretical motivation to explore a broader set of dark matter candidates.
+%As the high-energy physics program expands to ``search for dark matter along every feasible avenue'' \citep{P5Report}, it is essential to keep in mind that the only direct, empirical measurements of dark matter properties to date come from astrophysical and cosmological observations.
+%More than 85 years after its astrophysical discovery, the fundamental nature of dark matter remains one of the foremost open questions in physics and astronomy.
+%Over the last several decades, an extensive experimental program has sought to determine the cosmological origin, fundamental constituents, and interaction mechanisms of dark matter.
+To date, the only direct, positive empirical measurements of dark matter come from astrophysical observations.
+%Discovering the fundamental nature of dark matter will draw upon the tools of particle physics, cosmology, stellar astrophysics, and galaxy evolution.
+Discovering the fundamental nature of dark matter will necessarily draw upon the tools particle physics, cosmology, and astronomy.
+
+The Large Synoptic Survey Telescope (LSST) will provide a unique and impressive platform to study dark sector physics in the 2020s.
+Originally envisioned as the ``Dark Matter Telescope'' \citep{Tyson:2001}, LSST will enable precision tests of the \LCDM model and elucidate the connection between luminous galaxies and the cosmic web of dark matter. 
+Cosmology has consistently shown that it is impossible to separate the \emph{macroscopic distribution} of dark matter from the \emph{microscopic physics} governing dark matter.
+In fact, there are several microscopic characteristics of dark matter that are \emph{only accessible} via astrophysics.
+Studies of dark matter, dark energy, massive neutrinos, and galaxy evolution are \emph{extremely complementary} from both a technical and scientific standpoint. 
+%Originally envisioned as the ``Dark Matter Telescope'' \citep{Tyson:2001}, LSST will enable precision tests of the standard \LCDM model, 
+%Originally envisioned as the ``Dark Matter Telescope'' \citep{Tyson:2001}, LSST will test a broad range of well-motivated theoretical models of dark matter including self-interacting dark matter, warm dark matter, dark matter-baryon scattering, ultra-light dark matter, axion-like particles, and primordial black holes. 
+%In the precision era of LSST, studies of dark matter and dark energy are \emph{extremely complementary} from both a technical and scientific standpoint
+%, a major joint experimental effort between NSF and DOE,
+%The Large Synoptic Survey Telescope (LSST) provides a unique and impressive platform to study dark sector physics.
+%LSST was originally envisioned as the ``Dark Matter Telescope'' \citep{Tyson:2001}, though in recent years, studies of fundamental physics with LSST have been more focused on dark energy.
+%The Large Synoptic Survey Telescope (LSST), a major joint experimental effort between NSF and DOE, provides a unique and impressive platform to study dark sector physics.
+%LSST was originally envisioned as the ``Dark Matter Telescope'' \citep{Tyson:2001}, though in recent years, studies of fundamental physics with LSST have been more focused on dark energy.
+%Dark matter is an essential component of the standard \LCDM model, and a detailed understanding of dark energy cannot be achieved without a detailed understanding of dark matter.
+%In the precision era of LSST, studies of dark matter and dark energy are \emph{extremely complementary} from both a technical and scientific standpoint.
+%In addition, cosmology has consistently shown that it is impossible to separate the \emph{macroscopic distribution} of dark matter from the \emph{microscopic physics} governing dark matter.
+In this document, we reaffirm LSST's ability to test a broad range of well-motivated theoretical models of dark matter including self-interacting dark matter, warm dark matter, dark matter-baryon scattering, ultra-light dark matter, axion-like particles, and primordial black holes. 
+
+LSST will enable studies of Milky Way satellite galaxies, stellar streams, and strong lens systems to detect and characterize the smallest dark matter halos, thereby probing the minimum mass of ultra-light dark matter and thermal warm dark matter.
+Precise measurements of the density and shapes of dark matter halos in dwarf galaxies and galaxy clusters will be sensitive to dark matter self-interactions probing hidden sector and dark photon models.
+Microlensing measurements will directly probe primordial black holes and the compact object fraction of dark matter at the sub-percent level over a wide range of masses.
+Precise measurements of stellar populations will be sensitive to anomalous energy loss mechanisms and will constrain the coupling of axion-like particles to photons and electrons.
+Measurements of large-scale structure will spatially resolve the influence of both dark matter and dark energy, enabling searches for correlations between the two known components of the dark sector.
+In addition, complementarity between LSST, direct detection, and other indirect searches for dark matter will help constrain dark matter-baryon scattering, dark matter self-annihilation, and dark matter decay. 
+
+%Studies of dark matter with LSST will provide critical information about the fundamental nature of dark matter over the next decade at a low cost by leveraging a soon-to-exist facility.
+%By leveraging a soon to-exist-facility, a small program with LSST will provide critical information about the fundamental nature of dark matter over the next decade at a low cost. 
+%The study of dark matter with LSST presents a small experimental program that is guaranteed to provide critical information about the fundamental nature of dark matter over the next decade.
+%LSST will rapidly produce high-impact science on the nature of fundamental dark matter by exploiting a soon-to-exist facility. 
+Dark matter studies with LSST will explore parameter space beyond the high-energy physics program's current sensitivity, while being highly complementary to other experimental searches.
+This has been recognized in Astro2010 \citep{Astro2010}, during the Snowmass Cosmic Frontier planning process \citep[][]{1310.8642, 1310.5662, 1305.1605}, in the P5 Report \citep[]{P5Report}, and in a series of more recent Cosmic Visions reports \citep[][]{1604.07626,1802.07216}, including the ``New Ideas in Dark Matter 2017:\ Community Report'' \citep{Battaglieri:2017aum}.
+%Astrophysical probes provide the only constraints on the minimum and maximum mass scale of dark matter, and 
+%Astrophysical observations will likely continue to guide other experimental efforts.
+%the experimental particle physics program for years to come.
+The impact of the LSST dark matter program will be enhanced by access to massively multiplexed spectroscopy on medium- to large-aperture telescopes ($\roughly 8–10$-meter class), and giant segmented mirror telescopes ($\roughly 30$-m class) with relatively smaller fields of view, together with high-resolution optical and radio imaging.
+
+This whitepaper is a summary of Drlica-Wagner et al. (2019) \citep{drlica-wagner_2019_lsst_dark_matter}.
 
 \begin{table}[h]
-\small
+\footnotesize
 \begin{center}
 \begin{tabular}{l c c c}
 \hline 
@@ -79,37 +137,200 @@ Baryon-Scattering Dark Matter & Halo Mass & Cross Section & $\sigma \sim 10^{-30
 Axion-Like Particles & Energy Loss & Coupling Strength & $g_{\phi e} \sim 10^{-13} $ \\
 Fuzzy Dark Matter & Halo Mass & Particle Mass & $m \sim 10^{-20} \eV$  \\
 Primordial Black Holes  & Compact Objects & Object Mass & $M > 10^{-4} \Msun$ \\
-Weakly Interacting Massive Particles & Indirect Detection & Cross Section & $\sigmav \sim 10^{-27} \cm^3/\second$ \\
+WIMPs & Indirect Detection & Cross Section & $\sigmav \sim 10^{-27} \cm^3/\second$ \\
 Light Relics & Large-Scale Structure & Relativistic Species & $N_{\rm eff} \sim 0.1$ \\[+0.5em]
 \hline
 \end{tabular}
 \end{center}
-\caption{\label{tab:models} Probes of fundamental dark matter physics with LSST. Classes of dark matter models are listed in Column 1, and the primary observational probe that is sensitive to each model is listed in Column 2. The corresponding dark matter parameters are listed in Column 3, and estimates of LSST's senstivity to each parameter are listed in Column 4.}
+\caption{\label{tab:models} Probes of fundamental dark matter physics with LSST. The four columns indicate classes of dark matter models, primary observational probe, corresponding dark matter parameters, and the estimated senstivity of LSST.}
+%Classes of dark matter models are listed in Column 1, and the primary observational probe that is sensitive to each model is listed in Column 2. The corresponding dark matter parameters are listed in Column 3, and estimates of LSST's senstivity to each parameter are listed in Column 4.}
 \end{table}
 
+\subsection*{Dark Matter Models}
 
-\section*{Dark Matter Models}
+Astrophysical observations use gravity to directly probe dark matter. 
+On large scales, current observational data are well described by a simple model of stable, non-relativistic, collisionless, cold dark matter (CDM).
+However, many viable theoretical models of dark matter predict deviations from CDM that are testable with current and future experimental programs.
+Fundamental properties of dark matter---e.g., particle mass, self-interaction cross section, coupling to the Standard Model, and time-evolution---can imprint themselves on the macroscopic distribution of dark matter in a detectable manner. LSST will be sensitive to multiple fundamentally distinct classes of dark matter models, including particle dark matter, field dark matter, and compact objects (\tabref{models}).
 
-\section*{Dark Matter Probes}
+\noindent \textbf{Particle Dark Matter:} LSST, in combination with other observations, will be able to probe microscopic characteristics of particle dark matter such as self-interaction cross section, particle mass, baryon-scattering cross section, self-annihilation rate, and decay rate. These measurements will complement and guide experimental efforts to probe particle dark matter.
 
-\section*{Complementarity}
+%Minimum halo mass, halo profiles, compact object abundance, anomalous energy loss mechanisms, and large-scale structure.
 
-\section*{Discovery Potential}
+\noindent \textbf{Wave-like Dark Matter:} Axion-like particles and other (ultra-)light dark matter candidates are a natural alternative to conventional particle dark matter. LSST will be uniquely sensitive to the minimum mass of ultra-light dark matter and to couplings between axion-like particles and the Standard Model.
+
+\noindent \textbf{Compact Objects:} Compact object dark matter is fundamentally different from particle models; primordial black holes cannot be studied in an accelerator and can only be detected through their gravitational force. 
+Primordial black holes (PBHs) formed directly from the primordial density fluctuations could make up some fraction of the dark matter, and a measurement of their abundance would directly constrain the amplitude of density fluctuations and provide unique insights into physics at ultra-high energies.
 
 
+\subsection*{Dark Matter Probes} 
 
-Insert your white paper text here (max of five pages including figures).
+\noindent {\bf Minimum Halo Mass:}
+The standard cosmological model predicts a nearly scale-invariant mass spectrum of dark matter halos down to Earth-mass scales (or below), e.g., in WIMP and non-thermal axion models \citep{Green:2003un,2005Natur.433..389D,1412.5930}.
+%A defining prediction of the standard cosmological model with cold dark matter (CDM) is the gathering of dark matter into gravitationally bound halos having a nearly scale-invariant mass spectrum on physical scales ranging from galaxy clusters to planet-scale masses.
+%The cold, collisionless model of dark matter predicts that dark matter halos should exist down to Earth-mass scales (or below) in WIMP and non-thermal axion models \citep{Green:2003un,2005Natur.433..389D,1412.5930}.
+Modifications to the cold, collisionless dark matter paradigm can suppress the formation of dark matter halos on these small scales.
+Current observations provide a robust measurement of the dark matter halo mass spectrum for halos with mass $> 10^{10}\Msun$, and the smallest known galaxies provide an existence proof for halos of mass $\roughly 10^8 \Msun - 10^9 \Msun$ \citep{2017MNRAS.467.2019R,behroozi2018,Jethwa:2018,Kim:2017iwr,Nadler:2018,1807.07093}. 
+LSST will expand the census of ultra-faint satellite galaxies orbiting the Milky Way and enable statistical searches for extremely low-luminosity and low-surface brightness galaxies throughout the Local Volume.
+By measuring the galaxy luminosity function at the extreme low-mass threshold of galaxy formation, LSST will test the abundance of dark matter halos at $\sim10^8 \Msun$.
 
-\pagebreak
+LSST will probe dark matter halos below the threshold of galaxy formation with stellar streams and strongly lensed systems.
+%LSST will enable searches for completely dark halos using purely gravitational observational signatures, e.g., stellar stream gaps and strong gravitational lensing anomalies.
+%subhalos purely through their gravitational signatures
+Galactic dark matter subhalos with masses as small as $10^5$--$10^6 \Msun$ passing a stellar stream are capable of producing detectable gaps in the stellar density \citep[][]{erkal2016,bovy:2017}.
+%Deep and precise LSST photometry is expected to increase the contrast between streams and the contaminating Milky Way field stars, dramatically increasing our ability to detect density variations and thus leading to the identification of less prominent gaps created by low-mass perturbers
+By identifying additional stellar streams and increasing the density contrast of known streams against the smooth Milky Way halo, LSST will shift analysis from individual gaps into the regime of subhalo population statistics and (in)consistency with cold dark matter predictions.
+Importantly, LSST will allow studies of streams farther from the center of the Galaxy for which confounding baryonic effects are lessened.
+%LSST will mitigate both of these issues by examining streams farther from the center of the Galaxy where these effects are lessened.
+Meanwhile, strong gravitational lensing can be used to measure the abundance and masses of subhalos in massive galaxies and small isolated halos along the line-of-sight at cosmological distances, independent of their baryon content.
+LSST will increase the number of lensed systems from the current sample of hundreds to an expected samples of thousands of lensed quasars \citep{O+M10} and tens of thousands of lensed galaxies \citep{Collett2015}.
+%Through analysis of flux ratio anomalies, gravitational imaging, and measuring the power spectrum of 
+
+\noindent {\bf Halo Profiles:}
+Measurements of the radial density profiles and shapes of dark matter halos are sensitive to the microphysics governing non-gravitational dark matter self-interactions, which could produce flat density cores \citep{Spergel:1999mh} and more spherical halo shapes \citep{Peter:2013}
+%Dwarf galaxies, galaxy clusters, merging clusters.
+Through galaxy-galaxy weak lensing, LSST will be able to distinguish cored versus cuspy NFW density profiles for a sample of low-redshift dwarf galaxies with masses $M_\text{halo} = 3\times10^9\,h^{-1}\Msun$.
+Studies of the density profiles of massive galaxy clusters, as well as systems of merging galaxy clusters, will constrain the scattering cross section at the level $\sigmam \sim 0.1-1 \cmg$.
+By measuring halo profiles over a range to mass scales, LSST will provide sensitivity to dark matter scattering with non-trivial velocity dependence.
+%Due to the possibility that dark matter scattering has a non-trivial velocity dependence, it is important to probe halo profiles over a wide range of mass scales.
+%The standard CDM model predicts that dark matter halos should be “cuspy, i.e. with inner densityprofiles asymptoting to high central densities. If dark matter is able to interact through scattering or the exchange of some light mediator, then the density of halos could instead flatten out to produce dark matter “cores”.
+
+\noindent {\bf Compact Objects:} 
+LSST has the ability to directly detect signals of compact halo objects through precise, short- ($\roughly 30 \second$) and long-duration ($\roughly1 \unit{yr}$) observations of classical and parallactic microlensing\citep{1509.04899}.
+If scheduled optimally, LSST could extend PBH sensitivity to $\roughly0.03\%$ of the dark matter fraction for masses $\gtrsim 10^{-1} \Msun$.
+By supplementing the LSST survey with astrometric microlensing observations, it will be possible to break lensing mass-geometry degeneracies and make precise measurements of individual black hole masses. Thus, if PBHs make up a significant fraction of dark matter, LSST will effectively measure their ``particle'' properties and provide insight into the fundamental physics of the early universe.
+
+
+\noindent {\bf Anomalous Energy Loss:}
+Observations of stars provide a mechanism to probe temperatures, particle densities, and time scales that are inaccessible to laboratory experiments. Since conventional astrophysics allows us to quantitatively model the evolution of stars, the detailed study of stellar populations can provide a powerful technique to probe new physics. In particular, if new light particles exist and are coupled to Standard Model fields, their emission would provide an additional channel for energy loss. 
+LSST will greatly improve our understanding of stellar evolution by providing unprecedented photometry, astrometry, and temporal sampling for a large sample of faint stars. In particular, measurements of the white dwarf luminosity function, giant branch styles, and core-collapse supernovae.
+
+\noindent {\bf Large-Scale Structure:} LSST will produce the largest and most detailed map of the distribution of matter and the growth of cosmic structure over the past 10 Gyr.
+The large-scale clustering of matter and luminous tracers in the late-time universe is sensitive to the total amount of dark matter, the fraction of dark matter in light relics that behave as radiation at early times, and fundamental couplings between dark matter and dark energy.
+Measurements of large-scale structure with LSST will enhance constraints on massive neutrinos and other light relics from the early universe that could compose a fraction of the dark matter.
+Additionally, LSST will use SN and $3\times2$pt galaxy clustering to  measure dark energy in independent patches across the sky, allowing for spatial cross correlation between dark matter and dark energy \citep{0902.2590}.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.53\columnwidth]{figures/SIDM_WDM_figw_coll.pdf}
+\includegraphics[width=0.46\columnwidth]{figures/WDM_SIDM_discovery_test.pdf}
+\caption{\emph{Left}: Projected joint sensitivity to WDM particle mass and SIDM cross section from LSST observations of dark matter substructure. 
+\emph{Right}: Example of a measurement of particle properties for a dark matter model with a self-interaction cross section and matter power spectrum cut-off just beyond current constraints ($\sigmam = 2 \cmg$ and $\mWDM = 6\keV$, indicated by the red star).}
+\end{figure}
+
+%\begin{figure}[t]
+%\centering
+%\includegraphics[width=0.49\textwidth]{figures/LSST_Mmin.pdf}
+%\includegraphics[width=0.49\textwidth]{figures/streamgap_constraints_3.png}
+%\includegraphics[width=0.50\textwidth]{figures/wdm_constraints_yh.png}
+%\caption{Three complementary probes of minimum dark matter halo mass.}
+%\end{figure}
+
+%\begin{figure}
+%    \centering
+%    \includegraphics[width=0.50\textwidth]{figures/wdm_constraints_yh.png}
+%    \caption{ \label{fig:lensing_wdmlim_vs_nlens} Projected $2\sigma$ constraints on WDM particle mass as a function of the number of strong lens systems that achieve a given (sub)halo mass detection threshold, under the assumption that CDM is correct. These constraints include only the contribution from halo substructure, and do not include the line-of-sight contribution.
+%Exisiting Lyman-$\alpha$ forest constraints are shown with a dashed horizontal line \citep{2017PhRvD..96b3522I}. Figure based on \citet{Hezaveh_2016ltk}.
+%}
+%\end{figure}
+
+%\begin{figure}[t]
+%\centering
+%\includegraphics[width=0.775\textwidth]{figures/LSST_Mmin.pdf}
+%\caption{Forecast for the minimum dark matter subhalo mass probed by LSST via observations of Milky Way satellites. The red band shows the $95\%$ confidence interval from our MCMC fits to mock satellite populations as a function of the true peak subhalo mass necessary for galaxy formation. Note that we marginalize over the relevant nuisance parameters associated with the galaxy--halo connection---including the effects of baryons using a model calibrated on subhalo disruption in hydrodynamic simulations \citep{2018ApJ...859..129N}---in our sampling. We indicate the corresponding constraints on the warm dark matter mass assuming $M_{\rm hm} = \mathcal{M}_{\rm{min}}$ (see \secref{wdm})}\label{fig:satellite_mmin}
+%\end{figure}
+
+%\begin{figure}[t]
+%\centering
+%\includegraphics[width=0.85\textwidth]{figures/streamgap_constraints_3.png}
+%\caption{\label{fig:streamsurveys} Detection limits for gaps formed from subhalos of different masses using photometry from SDSS (blue) or the 10-year LSST stack (green) as a function of the stream surface brightness.
+%Shaded regions correspond to a 10-40 kpc distance range, with the lines representing 20 kpc. For streams with surface brightnesses similar to those found in DES, 32--$33 \magn \asec^{-2}$, LSST is expected to probe halo masses two to three orders of magnitude smaller than SDSS and substantially improve the current constraints from Milky Way satellites \citep{Nadler:2018, Jethwa:2018,Kim:2017iwr} and the Lyman-$\alpha$ forest \citep{2017PhRvD..96b3522I}. 
+%We connect the detected halos to the mass of the warm dark matter particle that would produce a minimum halo of that mass using the relationship determined by \cite{Bullock:2017}. Note that the halo mass definition used here is the $z=0$ virial mass; to relate this quantity to the peak subhalo mass used in our warm dark matter constraints, we have assumed the best-case scenario of no tidal mass loss.
+%}
+%\end{figure}
+
+\subsection*{Complementarity}
+
+LSST will uniquely complement experimental studies of dark matter with spectroscopy, high-resolution imaging, indirect detection experiments, and direct detection experiments.
+While LSST can substantially improve our understanding of dark matter in isolation, the combination of experiments is essential to provide a holistic picture of dark matter physics.
+
+\noindent {\bf Spectroscopy:}
+Wide field-of-view, massively multiplexed spectroscopy on 8--10-meter-class telescopes and smaller field-of-view deep spectroscopy with 30-meter-class telescopes will complement studies of minimum halo mass and halo profiles.
+
+\noindent {\bf High-Resolution Imaging:} High-resolution imaging with milliarcsecond-scale angular resolution using space-based and ground-based adaptive optics will benefit strong lensing, microlensing, and galaxy cluster studies with LSST.
+Milliarcsecond-scale angular resolution is needed 
+
+\noindent {\bf Indirect Detection:} By precisely mapping the distribution of dark matter and tracking extreme events, LSST will enable more sensitive searches for energetic particles originating from the dark sector.
+
+\noindent {\bf Direct Detection:}  LSST will complement direct detection experiments by improving measurements of the local phase-space density of dark matter, and how cosmological measurements with LSST can help probe dark matter  masses and cross sections outside the range accessible to direct detection experiments.
+
+\subsection*{Outlook: Discovery Potential}
+
+The multi-faceted LSST data will allow novel probes of dark matter physics that have yet to be considered.
+New ideas are especially important as the absence of evidence for the most popular dark matter candidates continues to grow.
+As the particle physics community seeks to diversify the experimental effort to search for dark matter, it is important to remember that astrophysical observations provide robust, empirical measurement of fundamental dark matter properties.
+In the coming decade, astrophysical observations will guide other experimental efforts, while simultaneously probing unique regions of dark matter parameter space.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.49\textwidth]{figures/macho_limits.pdf}
+\includegraphics[width=0.49\columnwidth]{figures/bsdm_limits.pdf}
+\caption{\label{fig:macho_constraints}
+    \emph{Left}: Constraints on the maximal fraction of dark matter in compact objects from existing probes (blue and gray) and projected sensitivity for LSST microlensing measurements (gold).
+    %Existing constraints include: lack of extragalactic gamma-rays from PBH evaporation \citep[EGR;][]{0912.5297, 1604.05349}, gamma-ray femtolensing \citep[GF;][]{1204.2056}, neutron star capture \citep[NS][]{1301.4984}, M31 microlensing \citep[M31ML][]{1701.02151}, Milky Way microlensing \citep[MWML;][]{2007A&A...469..387T, 2001ApJ...550L.169A, 2009MNRAS.397.1228W}, lensing of supernovae \citep[LSN;][]{1712.02240,1712.06574}, Eridanus II and other dwarf-galaxy constraints \citep[EII;][]{2016ApJ...824L..31B, 1611.05052}, wide binary stars \citep[WB;][]{2009MNRAS.396L..11Q, 2004ApJ...601..311Y}, cosmic microwave background \citep[CMB;][]{2017PhRvD..95d3534A, 2008ApJ...680..829R}, and disk stability \citep[DS;][]{1985ApJ...299..633L, 1994ApJ...437..184X}.
+    %To improve figure clarity we have not shown some astrophysical constraints where they are less sensitive than a presented constraint; see \citet{2016PhRvD..94h3504C} for a more complete review.
+    %There are a range of constraints for most astrophysical probes in the literature due to varying assumptions within a single work (EGR, NS, and EII) and reanalysis/disagreements between groups (WB, CMB).
+    %We present the most conservative constraints in blue and the most aggressive constraints in gray.
+    %The LSST M31 microlensing projection is based on extrapolating HSC constraints \citep{1701.02151} assuming a 10-day mini-survey of M31 with a $12\second$ cadence between exposures.
+    %% Such a survey is approximately 10 times longer with an order of magnitude faster cadence than the existing HSC survey.
+    %The projected LSST Milky Way (MW) microlensing and paralensing constraints are from a Monte Carlo analysis where lenses were injected into light curves based on LSST OpSim cadence simulations
+    %% (see \url{https://github.com/lsstdarkmatter/dark-matter-paper/issues/8} for details).
+    %The paralensing constraint comes from assuming that only the secondary microlensing parallax signal is used for discovery, and not the primary heliocentric microlensing signal.
+    \emph{Right}: Constraints on dark matter-baryon scattering through a velocity-independent, spin-independent contact interaction with protons from existing constraints (blue and gray) and projections for LSST observations of Milky Way satellite galaxies (gold).
+    %Existing constraints are shown in blue and gray.
+    %Existing constraints (shown in blue) include measurements of the CMB power spectrum \citep[CMB;][]{Gluscevic:2017ywp} and constraints from the X-ray Quantum Calorimeter experiment \citep[XQC;][]{0704.0794}. Direct detection constraints include results from CRESST-III \citep{1711.07692}, the CRESST 2017 surface run \citep{1707.06749}, and XENON1T \citep{1705.06655}, as interpreted by \citet[][]{1802.04764}. %\citep{2018PhRvD..97l3013K}.
+    %Additional constraints that include the effects of cosmic-ray heating of dark matter are shown in gray \citep[][]{1810.10543}.
+    %The projected sensitivity of LSST to dark matter-baryon scattering through observations of Milky Way satellite dwarf galaxies is shown in gold.
+}
+\end{figure}
+
+
+%\begin{figure}[t]
+%\centering
+%\includegraphics[width=0.75\columnwidth]{figures/SIDM_WDM_figw_coll.pdf}
+%\caption{\label{fig:sidm_wdm} Projected joint sensitivity to WDM particle mass and SIDM cross section from LSST observations of dark matter substructure. 
+%The red region is ruled out at 95\% confidence level by current observations of the Milky Way satellite population (the dashed part of the contour is subject to uncertainties due to core collapse, see main text).
+%The dashed vertical lines correspond to current constraints on the minimum WDM mass from the \Lya forest \citep{2017PhRvD..96b3522I}, and the projected sensitivity of LSST-discovered strong lenses and stellar streams.
+%LSST will be sensitive to deviations from the standard CDM scenario through several different probes.
+%The discovery of additional Milky Way satellites with LSST and their subsequent spectroscopic follow-up will probe the region in blue.
+%The region with large SIDM cross section delimited by the dashed line labelled ``MW Sats core collapse'' is likely to be probed by Milky Way satellite galaxies, but the simple analysis performed here is insufficient to quantify its sensitivity due to halo core collapse in this regime \citep{Nishikawa:2019lsc}. 
+%We caution that the exact shape of this region will depend on the amount of tidal disruption that subhalos experience.  
+%The top axis displays the corresponding half-mode mass as per Eq.~\eqref{eqn:Mhm}. 
+%Note that $\sigmaSIDM$ stands for the self-interaction cross section evaluated at velocities relevant for Milky Way satellite galaxies ($v_{\rm rel}\sim5$--$50 \kms$). }
+%\end{figure}
+
+
+%\begin{figure}
+%\centering
+%\includegraphics[width=0.6\columnwidth]{figures/WDM_SIDM_discovery_test.pdf}
+%\caption{\label{fig:sidm_wdm_disc} Example of a measurement of particle properties for a dark matter model with a self-interaction cross section and matter power spectrum cut-off just beyond current constraints ($\sigmam = 2 \cmg$ and $\mWDM = 6\keV$, indicated by the red star). Contours are created by following a procedure similar to \citet{Nadler:2018}, but augmented with the model outlined in \secref{combine_probes} to capture the effect of a power spectrum cut-off and a nonzero self-interaction cross section on the central densities of LSST-discovered Milky Way satellites with spectroscopic follow-up. We take $M_V=0$ mag and $\mu=32$ mag/arcsec$^2$ as our detection threshold for LSST. We assume a prior on the WDM mass $\propto 1/\mWDM$, and a prior on the Milky Way mass from \citet{Callingham:2018vcf}. This figure should be interpreted as a suggestive illustration of the dark matter science that will be enabled by LSST, rather than a precise forecast.  
+%}
+%\end{figure}
+
+\clearpage
 
 \def\bibname{References}
 \begingroup
   \small
   \setlength{\bibsep}{0pt plus 0.5ex}
-  \bibliographystyle{yahapj}
+  \bibliographystyle{JHEP}
+  %\bibliographystyle{yahapj}
   \bibliography{main}
 \endgroup
 
+\clearpage
+\subsection*{Affiliations}
+\input{affiliations}
 
 \end{document}
 
