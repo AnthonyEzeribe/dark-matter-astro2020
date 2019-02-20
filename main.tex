@@ -20,6 +20,8 @@
  final=true
 ]{hyperref}
 \usepackage[super,sort&compress]{natbib}
+\usepackage{enumitem}
+\setenumerate{itemsep=0mm}
 
 \newcommand{\Comment}[3]{\textcolor{#1}{(#2: #3)}} 
 \newcommand{\ADW}[1]{\Comment{blue}{ADW}{#1}} % Alex Drlica-Wagner 
@@ -88,7 +90,7 @@ Discovering the fundamental nature of dark matter will necessarily draw upon the
 The Large Synoptic Survey Telescope (LSST) will provide a unique and impressive platform to study dark sector physics in the 2020s.
 Originally envisioned as the ``Dark Matter Telescope'' \citep{Tyson:2001}, LSST will enable precision tests of the \LCDM model and elucidate the connection between luminous galaxies and the cosmic web of dark matter. 
 Cosmology has consistently shown that it is impossible to separate the \emph{macroscopic distribution} of dark matter from the \emph{microscopic physics} governing dark matter.
-In fact, there are several microscopic characteristics of dark matter that are \emph{only accessible} via astrophysics.
+In fact, some microscopic characteristics of dark matter are \emph{only accessible} via astrophysics.
 Studies of dark matter, dark energy, massive neutrinos, and galaxy evolution are \emph{extremely complementary} from both a technical and scientific standpoint. 
 %Originally envisioned as the ``Dark Matter Telescope'' \citep{Tyson:2001}, LSST will enable precision tests of the standard \LCDM model, 
 %Originally envisioned as the ``Dark Matter Telescope'' \citep{Tyson:2001}, LSST will test a broad range of well-motivated theoretical models of dark matter including self-interacting dark matter, warm dark matter, dark matter-baryon scattering, ultra-light dark matter, axion-like particles, and primordial black holes. 
@@ -115,7 +117,7 @@ In addition, complementarity between LSST, direct detection, and other indirect 
 %The study of dark matter with LSST presents a small experimental program that is guaranteed to provide critical information about the fundamental nature of dark matter over the next decade.
 %LSST will rapidly produce high-impact science on the nature of fundamental dark matter by exploiting a soon-to-exist facility. 
 Dark matter studies with LSST will explore parameter space beyond the high-energy physics program's current sensitivity, while being highly complementary to other experimental searches.
-This has been recognized in Astro2010 \citep{Astro2010}, during the Snowmass Cosmic Frontier planning process \citep[][]{1310.8642, 1310.5662, 1305.1605}, in the P5 Report \citep[]{P5Report}, and in a series of more recent Cosmic Visions reports \citep[][]{1604.07626,1802.07216}, including the ``New Ideas in Dark Matter 2017:\ Community Report'' \citep{Battaglieri:2017aum}.
+This has been recognized in Astro 2010 \citep{Astro2010}, during the Snowmass Cosmic Frontier planning process \citep[][]{1310.8642, 1310.5662, 1305.1605}, in the P5 Report \citep[]{P5Report}, and in a series of recent Cosmic Visions reports \citep[][]{1604.07626,1802.07216}, including the ``New Ideas in Dark Matter 2017:\ Community Report'' \citep{Battaglieri:2017aum}.
 %Astrophysical probes provide the only constraints on the minimum and maximum mass scale of dark matter, and 
 %Astrophysical observations will likely continue to guide other experimental efforts.
 %the experimental particle physics program for years to come.
@@ -183,7 +185,7 @@ By identifying additional stellar streams and increasing the density contrast of
 Importantly, LSST will allow studies of streams farther from the center of the Galaxy for which confounding baryonic effects are lessened.
 %LSST will mitigate both of these issues by examining streams farther from the center of the Galaxy where these effects are lessened.
 Meanwhile, strong gravitational lensing can be used to measure the abundance and masses of subhalos in massive galaxies and small isolated halos along the line-of-sight at cosmological distances, independent of their baryon content.
-LSST will increase the number of lensed systems from the current sample of hundreds to an expected samples of thousands of lensed quasars \citep{O+M10} and tens of thousands of lensed galaxies \citep{Collett2015}.
+LSST will increase the number of lensed systems from the current sample of hundreds to an expected sample of thousands of lensed quasars \citep{O+M10} and tens of thousands of lensed galaxies \citep{Collett2015}.
 %Through analysis of flux ratio anomalies, gravitational imaging, and measuring the power spectrum of 
 
 \noindent {\bf Halo Profiles:}
@@ -191,7 +193,7 @@ Measurements of the radial density profiles and shapes of dark matter halos are 
 %Dwarf galaxies, galaxy clusters, merging clusters.
 Through galaxy-galaxy weak lensing, LSST will be able to distinguish cored versus cuspy NFW density profiles for a sample of low-redshift dwarf galaxies with masses $M_\text{halo} = 3\times10^9\,h^{-1}\Msun$.
 Studies of the density profiles of massive galaxy clusters, as well as systems of merging galaxy clusters, will constrain the scattering cross section at the level $\sigmam \sim 0.1-1 \cmg$.
-By measuring halo profiles over a range to mass scales, LSST will provide sensitivity to dark matter scattering with non-trivial velocity dependence.
+By measuring halo profiles over a range of mass scales, LSST will provide sensitivity to dark matter scattering with non-trivial velocity dependence.
 %Due to the possibility that dark matter scattering has a non-trivial velocity dependence, it is important to probe halo profiles over a wide range of mass scales.
 %The standard CDM model predicts that dark matter halos should be “cuspy, i.e. with inner densityprofiles asymptoting to high central densities. If dark matter is able to interact through scattering or the exchange of some light mediator, then the density of halos could instead flatten out to produce dark matter “cores”.
 
@@ -278,6 +280,8 @@ New ideas are especially important as the absence of evidence for the most popul
 As the particle physics community seeks to diversify the experimental effort to search for dark matter, it is important to remember that astrophysical observations provide robust, empirical measurement of fundamental dark matter properties.
 In the coming decade, astrophysical observations will guide other experimental efforts, while simultaneously probing unique regions of dark matter parameter space.
 
+
+
 \begin{figure}[t]
 \centering
 \includegraphics[width=0.49\textwidth]{figures/macho_limits.pdf}
@@ -301,6 +305,28 @@ In the coming decade, astrophysical observations will guide other experimental e
 }
 \end{figure}
 
+\clearpage
+
+\subsection*{Recommendations for Astro 2020}
+
+LSST is scheduled to begin a decade of science operations in 2022.
+We make the following recommendations to facilitate the dark matter science goals outlined here:
+%and in Drlica-Wagner et al. (2019)\citep{drlica-wagner_2019_lsst_dark_matter}:
+
+\setlist{nolistsep}
+\begin{itemize}[noitemsep]
+
+    \item (Funding agencies should) Support individual PIs and collaborative teams to analyze LSST data for dark matter science, scaling up proven methods to leverage the statistical power offered by LSST, and developing new techniques in image analysis, time-domain analysis, object classification, etc.
+    %, to enhance sensitivity
+    \item (Funding agencies should) Support associated theoretical research efforts to better understand the galaxy-halo connection, investigate novel signatures of dark matter microphysics, study confounding baryonic effects, etc.
+    
+    \item (Funding agencies should) Support research that combines LSST with other facilities for dark matter science, including spectroscopic follow-up, high-resolution imaging, joint-analysis of cosmological datasets, numerical simulations, etc.
+    
+    \item (Scientists) The LSST dark matter science community should maintain/expand opportunities for collaboration. (This could mean finding a home within an existing Science Collaboration, forming a new collaboration, and/or establish strong connections between science collaborations. A key point is consistency between probes.)
+    
+    \item (Scientists) Complementarity of astrophysical probes with particle physics experiment and theory. 
+    
+\end{itemize}
 
 %\begin{figure}[t]
 %\centering
