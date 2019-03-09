@@ -26,12 +26,12 @@ merge = data.merge(lsst,left_on=['Surname','Name'],right_on=['Lastname','Firstna
 cut = ~np.in1d(data['Surname']+data['Name'],merge['Surname']+merge['Name'])
 data = data[cut]
 
-new = pd.DataFrame(odict([("Lastname", data['Surname']),
-                    ("Firstname", data['Name']),
-                    ("Authorname", data['Latex Name']),
-                    ("AuthorType", len(data)*['Supporter']),
-                    ("Affiliation", data['LaTeX Affiliation alias(es)']),
-                    ("Contribution", len(data)*['Supporter']),
+new = pd.DataFrame(odict([("Lastname", data['Surname'].str.encode('utf-8')),
+                          ("Firstname", data['Name'].str.encode('utf-8')),
+                          ("Authorname", data['Latex Name']),
+                          ("AuthorType", len(data)*['Supporter']),
+                          ("Affiliation", data['LaTeX Affiliation alias(es)']),
+                          ("Contribution", len(data)*['Supporter']),
                     ("Email", data['Email Address']),
                     ("ORCID", len(data)*['']),
                 ])).sort_values(by='Lastname')
