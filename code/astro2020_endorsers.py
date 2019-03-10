@@ -10,15 +10,15 @@ import numpy as np
 from collections import OrderedDict as odict
 
 #data = pd.read_csv('astro2020_endorsers.tsv', sep='\t')
-data = pd.read_csv('data/astro2020_endorsers.csv')
-lsst = pd.read_csv('data/lsstdarkmatter_endorsers.csv')
+data = pd.read_csv('data/astro2020_endorsers_v3.csv')
+lsst = pd.read_csv('data/lsstdarkmatter_endorsers_v2.csv')
 
 which_papers = data['Which Decadal Survey Science Submissions are you willing to endorse?']
 
 count = np.char.count(which_papers.tolist(), 'Dark matter constraints with LSST')
 cut = (count > 0)
 
-print np.sum(cut), len(which_papers)
+print( np.sum(cut), len(which_papers) )
 
 data = data[cut]
 merge = data.merge(lsst,left_on=['Surname','Name'],right_on=['Lastname','Firstname'])
@@ -26,8 +26,16 @@ merge = data.merge(lsst,left_on=['Surname','Name'],right_on=['Lastname','Firstna
 cut = ~np.in1d(data['Surname']+data['Name'],merge['Surname']+merge['Name'])
 data = data[cut]
 
-new = pd.DataFrame(odict([("Lastname", data['Surname'].str.encode('utf-8')),
-                          ("Firstname", data['Name'].str.encode('utf-8')),
+# Other duplicates...
+cut = ~np.in1d(data['Surname'],['Slosar','Johann','Drlica-Wagner','Armstrong'])
+data = data[cut]
+
+#data['Surname'] = data['Surname'].str.encode('utf-8')
+#data['Name'] = data['Name'].str.encode('utf-8')
+#data['LaTeX Affiliation alias(es)'] = data['LaTeX Affiliation alias(es)'].str.encode('utf-8')
+
+new = pd.DataFrame(odict([("Lastname", data['Surname']),
+                          ("Firstname", data['Name']),
                           ("Authorname", data['Latex Name']),
                           ("AuthorType", len(data)*['Supporter']),
                           ("Affiliation", data['LaTeX Affiliation alias(es)']),
@@ -37,7 +45,7 @@ new = pd.DataFrame(odict([("Lastname", data['Surname'].str.encode('utf-8')),
                 ])).sort_values(by='Lastname')
 
 out = lsst.append(new)
-print len(lsst), len(out)
+print( len(lsst), len(out) )
 out.to_csv('astro2020_endorsers_trimmed_merged.csv',index=False)
 
 #data['Latex Name'][cut]
