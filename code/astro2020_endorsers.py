@@ -1,3 +1,6 @@
+#!/usr/bin/env python3
+# This requires Python 3 for unicode support
+
 # Export the spreadsheet in tsv format
 # https://docs.google.com/spreadsheets/d/15ABUX6cCw6eNijMPS5pm43lI_ySlXRDfsROzT0h3y4E/edit?usp=sharing
 
@@ -30,10 +33,6 @@ data = data[cut]
 cut = ~np.in1d(data['Surname'],['Slosar','Johann','Drlica-Wagner','Armstrong'])
 data = data[cut]
 
-#data['Surname'] = data['Surname'].str.encode('utf-8')
-#data['Name'] = data['Name'].str.encode('utf-8')
-#data['LaTeX Affiliation alias(es)'] = data['LaTeX Affiliation alias(es)'].str.encode('utf-8')
-
 new = pd.DataFrame(odict([("Lastname", data['Surname']),
                           ("Firstname", data['Name']),
                           ("Authorname", data['Latex Name']),
@@ -47,13 +46,4 @@ new = pd.DataFrame(odict([("Lastname", data['Surname']),
 out = lsst.append(new)
 print( len(lsst), len(out) )
 out.to_csv('astro2020_endorsers_trimmed_merged.csv',index=False)
-
-#data['Latex Name'][cut]
-#data['LaTeX Affiliation alias(es)'][cut]
-#
-#df = pd.DataFrame({'name': data['Latex Name'][cut],
-#                   'affiliation': data['LaTeX Affiliation alias(es)'][cut]})
-#df.to_csv('astro2020_endorsers_trimmed.csv')
-
-# Open that trimmed file with pd.read_csv
 
